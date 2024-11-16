@@ -20,11 +20,14 @@ def add_bg_from_local(image_file):
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(255, 255, 255, 0.99); /* Điều chỉnh độ trong suốt ở đây */
+        background-color: rgba(255, 255, 255, 0.99);
         z-index: -1;
     }}
     .custom-title {{
-        color: #F05454;
+        color: #30475E;
+    }}
+    .stMarkdown, .stText {{
+        color: #30475E !important;
     }}
     </style>
     """,
@@ -37,23 +40,24 @@ st.logo("big_logo.png",size="large",icon_image="small_logo.png")
 st.image("banner.png")
 
 st.markdown('<h1 class="custom-title">App phân bổ danh mục đầu tư theo chỉ báo kĩ thuật</h1>', unsafe_allow_html=True)
-st.write(":red[Chọn phương thức nhập dữ liệu mà bạn muốn]")
+st.markdown('<p style="color: #30475E;">Chọn phương thức nhập dữ liệu mà bạn muốn</p>', unsafe_allow_html=True)
 
 custom_css = """
 <style>
     html, body, [class*="css"] {
         font-size: 20px;
+        color: #30475E;
     }
     .stButton > button {
         font-weight: bold !important;
         font-size: 20px !important;
-        color: #000000 !important;
-        border: 2px solid #000000 !important;
+        color: #30475E !important;
+        border: 2px solid #30475E !important;
         border-radius: 5px !important;
         transition: all 0.3s ease !important;
     }
     .stButton > button:hover {
-        background-color: #000000 !important;
+        background-color: #30475E !important;
         color: white !important;
     }
 }
