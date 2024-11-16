@@ -1,7 +1,8 @@
 import streamlit as st
 
 st.set_page_config(page_title="Ứng dụng LSTM cho danh mục đầu tư",page_icon="📊")
-
+st.logo("logo.png",icon_image="logo.png")
+st.image("banner.png")
 st.title(":blue[App phân bổ danh mục đầu tư theo chỉ báo kĩ thuật]")
 st.write(":red[Chọn phương thức nhập dữ liệu mà bạn muốn]")
 
