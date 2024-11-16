@@ -20,7 +20,7 @@ def add_bg_from_local(image_file):
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(255, 255, 255, 0.5); /* Điều chỉnh độ trong suốt ở đây */
+        background-color: rgba(255, 255, 255, 0.99); /* Điều chỉnh độ trong suốt ở đây */
         z-index: -1;
     }}
     </style>
