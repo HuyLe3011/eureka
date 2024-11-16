@@ -21,3 +21,4 @@ scikeras
 beautifulsoup4
 
 IPython
+plotly
