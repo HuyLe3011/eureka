@@ -24,7 +24,7 @@ def add_bg_from_local(image_file):
         z-index: -1;
     }}
     .custom-title {{
-        color: #30475E;
+        color: #F05454;
     }}
     .stMarkdown, .stText {{
         color: #30475E !important;
