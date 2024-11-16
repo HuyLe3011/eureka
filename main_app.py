@@ -12,16 +12,8 @@ def add_bg_from_local(image_file):
     .stApp {{
         background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
         background-size: cover;
-    }}
-    .stApp::before {{
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(255, 255, 255, 0.001);
-        z-index: -1;
+        background-color: rgba(255, 255, 255, 0.7); /* Điều chỉnh độ mờ ở đây */
+        background-blend-mode: overlay;
     }}
     .custom-title {{
         color: #F05454;
@@ -36,7 +28,7 @@ def add_bg_from_local(image_file):
 
 add_bg_from_local('background.png')
 
-st.logo("big_logo.png",size="large",icon_image="small_logo.png")
+st.image("big_logo.png")
 st.image("banner.png")
 
 st.markdown('<h1 class="custom-title">App phân bổ danh mục đầu tư theo chỉ báo kĩ thuật</h1>', unsafe_allow_html=True)
