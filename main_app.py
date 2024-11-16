@@ -28,7 +28,7 @@ def add_bg_from_local(image_file):
 
 add_bg_from_local('background.png')
 
-st.image("big_logo.png")
+st.logo("big_logo.png",icon_image="small_logo.png")
 st.image("banner.png")
 
 st.markdown('<h1 class="custom-title">App phân bổ danh mục đầu tư theo chỉ báo kĩ thuật</h1>', unsafe_allow_html=True)
