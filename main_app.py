@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 
 st.set_page_config(page_title="Ứng dụng LSTM cho danh mục đầu tư",page_icon="📊")
 
