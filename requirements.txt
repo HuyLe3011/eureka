@@ -19,6 +19,6 @@ vnstock
 scikeras
 
 beautifulsoup4
-base64
+Pillow
 IPython
 plotly
