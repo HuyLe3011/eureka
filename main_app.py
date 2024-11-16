@@ -23,6 +23,9 @@ def add_bg_from_local(image_file):
         background-color: rgba(255, 255, 255, 0.99); /* Điều chỉnh độ trong suốt ở đây */
         z-index: -1;
     }}
+    .custom-title {{
+        color: #F05454;
+    }}
     </style>
     """,
     unsafe_allow_html=True
@@ -30,11 +33,10 @@ def add_bg_from_local(image_file):
 
 add_bg_from_local('background.png')
 
-
 st.logo("big_logo.png",size="large",icon_image="small_logo.png")
 st.image("banner.png")
 
-st.title(":blue[App phân bổ danh mục đầu tư theo chỉ báo kĩ thuật]")
+st.markdown('<h1 class="custom-title">App phân bổ danh mục đầu tư theo chỉ báo kĩ thuật</h1>', unsafe_allow_html=True)
 st.write(":red[Chọn phương thức nhập dữ liệu mà bạn muốn]")
 
 custom_css = """
@@ -54,7 +56,7 @@ custom_css = """
         background-color: #000000 !important;
         color: white !important;
     }
-    }
+}
 </style>
 """
 
