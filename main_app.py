@@ -30,7 +30,8 @@ def add_bg_from_local(image_file):
 
 add_bg_from_local('background.png')
 
-st.logo("logo.png",icon_image="logo.png")
+
+st.logo("big_logo.png",size="large",icon_image="small_logo.png")
 st.image("banner.png")
 
 st.title(":blue[App phân bổ danh mục đầu tư theo chỉ báo kĩ thuật]")
