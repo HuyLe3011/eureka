@@ -263,20 +263,19 @@ if prices is not None:
             xaxis=dict(
                 title='<b>Mã cổ phiếu</b>',  # In đậm tiêu đề trục x
                 tickangle=-45,  # Góc xoay cho nhãn trục x
-                tickfont=dict(size=12, color='black', family='Arial', bold=True),
-                titlefont=dict(size=14, family='Arial', color='black')# In đậm nhãn trục x
+                tickfont=dict(size=12, color='black', family='Arial', bold=True)  # In đậm nhãn trục x
             ),
             yaxis=dict(
                 title='<b>Tỷ suất lợi nhuận (%)</b>',  # In đậm tiêu đề trục y
                 tickformat="%.2f%%",  # Định dạng số liệu
-                tickfont=dict(size=12, color='black', family='Arial', bold=True),
-                titlefont=dict(size=14, family='Arial', color='black')# In đậm nhãn trục y
+                tickfont=dict(size=12, color='black', family='Arial', bold=True)  # In đậm nhãn trục y
             ),
             plot_bgcolor='rgba(0,0,0,0)',  # Nền biểu đồ trong suốt
             paper_bgcolor='rgba(0,0,0,0)',  # Nền toàn bộ khung trong suốt
             height=800,
             width=1200
         )
+
         
         # Hiển thị biểu đồ trong Streamlit
         st.plotly_chart(fig)
