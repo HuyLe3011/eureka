@@ -406,7 +406,18 @@ if start_date and end_date and start_date <= end_date and (end_date - start_date
         square_plot_test['Nhãn'] = square_plot_test['Cổ phiếu'] + '<br>' + square_plot_test['Tỷ trọng'].apply(lambda x: f"{x*100:.2f}").astype(str) + '%'
 
         # Định nghĩa màu sắc cho các khối
-        colors = ['#91DCEA', '#64CDCC', '#5FBB68', '#F9D23C', '#F9A729', '#FD6F30']
+        colors = [
+            '#AB63FA',  # Tím nhạt
+            '#636EFA',  # Xanh dương nhạt
+            '#A1CAF1',  # Xanh nhạt
+            '#19D3F3',  # Xanh cyan
+            '#00CC96',  # Xanh lá cây
+            '#B6E880',  # Xanh lá cây nhạt
+            '#FECB52',  # Vàng
+            '#FFA15A',  # Cam sáng
+            '#EF553B',  # Đỏ cam
+            '#D62728'   # Đỏ đậm (nóng nhất)
+        ]
 
         # Tạo biểu đồ treemap
         fig = px.treemap(
