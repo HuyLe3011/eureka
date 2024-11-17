@@ -3,6 +3,7 @@ import os
 import random
 import numpy as np
 import tensorflow as tf
+import base64
 
 seed_value = 20  # Bạn có thể thay đổi seed theo ý muốn
 
