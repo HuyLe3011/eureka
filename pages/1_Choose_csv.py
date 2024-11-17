@@ -249,21 +249,29 @@ if prices is not None:
         st.title('50 cổ phiếu cho lợi nhuận cao nhất trên chiến thuật SMA theo file dữ liệu')
         return_ma_check_sorted = return_ma_check.sort_values('Return', ascending=False)
 
-        # Tạo biểu đồ cột với Plotly
+        # Tùy chỉnh biểu đồ
         fig = go.Figure(data=[
-            go.Bar(x=return_ma_check_sorted['Ticker'], y=return_ma_check_sorted['Return']*100)
+            go.Bar(x=return_ma_check_sorted['Ticker'], y=return_ma_check_sorted['Return'] * 100)
         ])
-
+        
         # Tùy chỉnh biểu đồ
         fig.update_layout(
-            xaxis_title='Mã cổ phiếu',
-            yaxis_title='Tỷ suất lợi nhuận (%)',
+            xaxis_title='<b>Mã cổ phiếu</b>',  # In đậm tiêu đề trục x
+            yaxis_title='<b>Tỷ suất lợi nhuận (%)</b>',  # In đậm tiêu đề trục y
             xaxis_tickangle=-45,
             height=800,  # Tăng chiều cao
-            width=1200, # Tăng chiều rộng
-            yaxis=dict(tickformat="%.2f%%")   
+            width=1200,  # Tăng chiều rộng
+            yaxis=dict(
+                tickformat="%.2f%%",  # Định dạng số liệu trên trục y
+                titlefont=dict(size=14, family='Arial', color='black')  # Font tiêu đề trục y
+            ),
+            xaxis=dict(
+                titlefont=dict(size=14, family='Arial', color='black')  # Font tiêu đề trục x
+            ),
+            plot_bgcolor='rgba(0,0,0,0)',  # Nền biểu đồ trong suốt
+            paper_bgcolor='rgba(0,0,0,0)'  # Nền toàn biểu đồ trong suốt
         )
-
+        
         # Hiển thị biểu đồ trong Streamlit
         st.plotly_chart(fig)
 
