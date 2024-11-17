@@ -256,26 +256,25 @@ if prices is not None:
         
         # Tùy chỉnh biểu đồ
         fig.update_layout(
-            xaxis=dict(
-                title='<b>Mã cổ phiếu</b>',  # In đậm tiêu đề trục x
-                tickangle=-45,  # Góc xoay cho nhãn trục x
-                tickfont=dict(size=12, color='black', family='Arial', bold=True)  # In đậm nhãn trục x
-            ),
+            xaxis_title='<b>Mã cổ phiếu</b>',  # In đậm tiêu đề trục x
+            yaxis_title='<b>Tỷ suất lợi nhuận (%)</b>',  # In đậm tiêu đề trục y
+            xaxis_tickangle=-45,
+            height=800,  # Tăng chiều cao
+            width=1200,  # Tăng chiều rộng
             yaxis=dict(
-                title='<b>Tỷ suất lợi nhuận (%)</b>',  # In đậm tiêu đề trục y
-                tickformat="%.2f%%",  # Định dạng số liệu
-                tickfont=dict(size=12, color='black', family='Arial', bold=True)  # In đậm nhãn trục y
+                tickformat="%.2f%%",  # Định dạng số liệu trên trục y
+                titlefont=dict(size=14, family='Arial', color='black')  # Font tiêu đề trục y
+            ),
+            xaxis=dict(
+                titlefont=dict(size=14, family='Arial', color='black')  # Font tiêu đề trục x
             ),
             plot_bgcolor='rgba(0,0,0,0)',  # Nền biểu đồ trong suốt
-            paper_bgcolor='rgba(0,0,0,0)',  # Nền toàn bộ khung trong suốt
-            height=800,
-            width=1200
+            paper_bgcolor='rgba(0,0,0,0)'  # Nền toàn biểu đồ trong suốt
         )
-
-
         
         # Hiển thị biểu đồ trong Streamlit
         st.plotly_chart(fig)
+
 
         mcp=list_allo.Asset.to_list()
 
