@@ -140,7 +140,7 @@ class MACrossStrategy(bt.Strategy):
 
 
 # Tải giá đóng cửa và thực hiện chiến thuật Trading SMA
-st.header(":blue[Chọn file .csv để tải lên]")
+st.header(":blue[CHỌN FILE .CSV ĐỂ TẢI LÊN]")
 
 def add_bg_from_local(image_file):
     with open(image_file, "rb") as image_file:
