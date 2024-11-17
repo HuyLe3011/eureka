@@ -256,10 +256,6 @@ if prices is not None:
         
         # Tùy chỉnh biểu đồ
         fig.update_layout(
-            title=dict(
-                text='<b>Biểu đồ Tỷ suất lợi nhuận của các Mã cổ phiếu</b>',  # Tiêu đề biểu đồ (in đậm)
-                font=dict(size=24, color='black', family='Arial')  # Phóng to kích thước tiêu đề
-            ),
             xaxis=dict(
                 title='<b>Mã cổ phiếu</b>',  # In đậm tiêu đề trục x
                 tickangle=-45,  # Góc xoay cho nhãn trục x
@@ -275,6 +271,7 @@ if prices is not None:
             height=800,
             width=1200
         )
+
 
         
         # Hiển thị biểu đồ trong Streamlit
