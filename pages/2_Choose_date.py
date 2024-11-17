@@ -165,7 +165,7 @@ add_bg_from_local('background.png')
 st.markdown("""
     <style>
     div.stButton > button:first-child {
-        background-color: #6A9AB0;
+        background-color: #D4F6FF;
         color: white;
     }
     div.stButton > button[kind="primary"] {
