@@ -251,25 +251,34 @@ if prices is not None:
 
         # Tạo biểu đồ
         fig = go.Figure(data=[
-            go.Bar(x=return_ma_check_sorted['Ticker'], y=return_ma_check_sorted['Return'] * 100)
+            go.Bar(
+                x=return_ma_check_sorted['Ticker'], 
+                y=return_ma_check_sorted['Return'] * 100
+            )
         ])
         
         # Tùy chỉnh biểu đồ
         fig.update_layout(
-            xaxis_title='<b>Mã cổ phiếu</b>',  # In đậm tiêu đề trục x
-            yaxis_title='<b>Tỷ suất lợi nhuận (%)</b>',  # In đậm tiêu đề trục y
-            xaxis_tickangle=-45,
-            height=800,  # Tăng chiều cao
-            width=1200,  # Tăng chiều rộng
-            yaxis=dict(
-                tickformat="%.2f%%",  # Định dạng số liệu trên trục y
-                titlefont=dict(size=14, family='Arial', color='black')  # Font tiêu đề trục y
+            title=dict(
+                text='<b>Biểu đồ Tỷ suất lợi nhuận của các Mã cổ phiếu</b>',  # Tiêu đề biểu đồ (in đậm)
+                font=dict(size=24, color='black', family='Arial')  # Phóng to tiêu đề
             ),
             xaxis=dict(
+                title='<b>Mã cổ phiếu</b>',  # Tiêu đề trục x (in đậm)
+                tickangle=-45,  # Góc xoay nhãn trục x
+                tickfont=dict(size=12, color='black', family='Arial', bold=True),  # Nhãn trục x in đậm
                 titlefont=dict(size=14, family='Arial', color='black')  # Font tiêu đề trục x
             ),
+            yaxis=dict(
+                title='<b>Tỷ suất lợi nhuận (%)</b>',  # Tiêu đề trục y (in đậm)
+                tickformat="%.2f%%",  # Định dạng số liệu trên trục y
+                tickfont=dict(size=12, color='black', family='Arial', bold=True),  # Nhãn trục y in đậm
+                titlefont=dict(size=14, family='Arial', color='black')  # Font tiêu đề trục y
+            ),
             plot_bgcolor='rgba(0,0,0,0)',  # Nền biểu đồ trong suốt
-            paper_bgcolor='rgba(0,0,0,0)'  # Nền toàn biểu đồ trong suốt
+            paper_bgcolor='rgba(0,0,0,0)',  # Nền toàn khung biểu đồ trong suốt
+            height=800,  # Chiều cao biểu đồ
+            width=1200  # Chiều rộng biểu đồ
         )
         
         # Hiển thị biểu đồ trong Streamlit
