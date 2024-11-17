@@ -256,20 +256,24 @@ if prices is not None:
         
         # Tùy chỉnh biểu đồ
         fig.update_layout(
-            xaxis_title='<b>Mã cổ phiếu</b>',  # In đậm tiêu đề trục x
-            yaxis_title='<b>Tỷ suất lợi nhuận (%)</b>',  # In đậm tiêu đề trục y
-            xaxis_tickangle=-45,
-            height=800,  # Tăng chiều cao
-            width=1200,  # Tăng chiều rộng
-            yaxis=dict(
-                tickformat="%.2f%%",  # Định dạng số liệu trên trục y
-                titlefont=dict(size=14, family='Arial', color='black')  # Font tiêu đề trục y
+            title=dict(
+                text='<b>Biểu đồ Tỷ suất lợi nhuận của các Mã cổ phiếu</b>',  # Tiêu đề biểu đồ (in đậm)
+                font=dict(size=24, color='black', family='Arial')  # Phóng to kích thước tiêu đề
             ),
             xaxis=dict(
-                titlefont=dict(size=14, family='Arial', color='black')  # Font tiêu đề trục x
+                title='<b>Mã cổ phiếu</b>',  # In đậm tiêu đề trục x
+                tickangle=-45,  # Góc xoay cho nhãn trục x
+                tickfont=dict(size=12, color='black', family='Arial', bold=True)  # In đậm nhãn trục x
+            ),
+            yaxis=dict(
+                title='<b>Tỷ suất lợi nhuận (%)</b>',  # In đậm tiêu đề trục y
+                tickformat="%.2f%%",  # Định dạng số liệu
+                tickfont=dict(size=12, color='black', family='Arial', bold=True)  # In đậm nhãn trục y
             ),
             plot_bgcolor='rgba(0,0,0,0)',  # Nền biểu đồ trong suốt
-            paper_bgcolor='rgba(0,0,0,0)'  # Nền toàn biểu đồ trong suốt
+            paper_bgcolor='rgba(0,0,0,0)',  # Nền toàn bộ khung trong suốt
+            height=800,
+            width=1200
         )
         
         # Hiển thị biểu đồ trong Streamlit
