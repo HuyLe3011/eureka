@@ -162,10 +162,23 @@ def add_bg_from_local(image_file):
 
 add_bg_from_local('background.png')
 
+st.markdown("""
+    <style>
+    div.stButton > button:first-child {
+        background-color: #6A9AB0;
+        color: white;
+    }
+    div.stButton > button[kind="primary"] {
+        background-color: #FBFBFB;
+        color: white;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 st.logo("big_logo.png",icon_image="small_logo.png")
 
 st.header(":blue[CHỌN KHOẢNG THỜI GIAN NGHIÊN CỨU]")
-if st.button("Quay trở lại trang chủ",use_container_width=True,icon="🏠"):
+if st.button("Quay trở lại trang chủ",type="primary",use_container_width=True,icon="🏠"):
     st.switch_page("main_app.py")
 
 list=listing_companies()
@@ -194,13 +207,7 @@ if start_date is not None and end_date is not None:
         st.error("Lỗi: Ngày kết thúc phải sau ngày bắt đầu và khoảng thời gian phải đủ dài.")
 
 if start_date and end_date and start_date <= end_date and (end_date - start_date) > timedelta(weeks=4) and end_date < today:
-    st.markdown("""
-    <style>
-    div.stButton > button:first-child {
-        background-color: #00FF00;
-        color: white;
-        }
-    </style>""", unsafe_allow_html=True)
+
     if st.button("Nhấn nút để bắt đầu tính toán"):
         st.success("Đang tiến hành giao dịch tự động và phân bổ danh mục đầu tư")
         
