@@ -392,7 +392,20 @@ if prices is not None:
         square_plot_test['Nhãn'] = square_plot_test['Cổ phiếu'] + '<br>' + square_plot_test['Tỷ trọng'].apply(lambda x: f"{x*100:.2f}").astype(str) + '%'
 
         # Định nghĩa màu sắc cho các khối
-        colors = ['#91DCEA', '#64CDCC', '#5FBB68', '#F9D23C', '#F9A729', '#FD6F30']
+        colors = [
+            '#636EFA',  # Màu xanh dương nhạt
+            '#EF553B',  # Màu đỏ cam
+            '#00CC96',  # Màu xanh lá cây
+            '#AB63FA',  # Màu tím nhạt
+            '#FFA15A',  # Màu cam sáng
+            '#19D3F3',  # Màu xanh cyan
+            '#FF6692',  # Màu hồng
+            '#B6E880',  # Màu xanh lá cây nhạt
+            '#FF97FF',  # Màu tím hồng
+            '#FECB52',  # Màu vàng
+            '#A1CAF1',  # Màu xanh nhạt
+            '#D62728'   # Màu đỏ đậm
+        ]
 
         # Tạo biểu đồ treemap
         fig = px.treemap(
