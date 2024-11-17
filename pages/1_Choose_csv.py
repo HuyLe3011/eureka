@@ -262,10 +262,10 @@ if prices is not None:
             width=1200,  # Tăng chiều rộng
             yaxis=dict(
                 tickformat="%.2f%%",  # Định dạng số liệu trên trục y
-                titlefont=dict(size=14, family='Arial', color='black')  # Font tiêu đề trục y
+                titlefont=dict(size=25, family='Arial', color='black')  # Font tiêu đề trục y
             ),
             xaxis=dict(
-                titlefont=dict(size=14, family='Arial', color='black')  # Font tiêu đề trục x
+                titlefont=dict(size=25, family='Arial', color='black')  # Font tiêu đề trục x
             ),
             plot_bgcolor='rgba(0,0,0,0)',  # Nền biểu đồ trong suốt
             paper_bgcolor='rgba(0,0,0,0)'  # Nền toàn biểu đồ trong suốt
