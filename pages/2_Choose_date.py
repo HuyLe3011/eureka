@@ -175,7 +175,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.logo("big_logo.png",icon_image="small_logo.png")
+st.logo("big_logo.png",size='large',icon_image="small_logo.png")
 
 st.header(":blue[CHỌN KHOẢNG THỜI GIAN NGHIÊN CỨU]")
 if st.button("Quay trở lại trang chủ",type="primary",use_container_width=True,icon="🏠"):
