@@ -141,7 +141,20 @@ class MACrossStrategy(bt.Strategy):
 
 # Tải giá đóng cửa và thực hiện chiến thuật Trading SMA
 st.header(":blue[CHỌN FILE .CSV ĐỂ TẢI LÊN]")
-if st.button("Quay trở lại trang chủ",use_container_width=True,icon="🏠"):
+st.markdown("""
+    <style>
+    div.stButton > button:first-child {
+        background-color: #D4F6FF;
+        color: white;
+    }
+    div.stButton > button[kind="primary"] {
+        background-color: #FBFBFB;
+        color: white;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+if st.button("Quay trở lại trang chủ",type="primary",use_container_width=True,icon="🏠"):
     st.switch_page("main_app.py")
     
 def add_bg_from_local(image_file):
