@@ -194,6 +194,13 @@ if start_date is not None and end_date is not None:
         st.error("Lỗi: Ngày kết thúc phải sau ngày bắt đầu và khoảng thời gian phải đủ dài.")
 
 if start_date and end_date and start_date <= end_date and (end_date - start_date) > timedelta(weeks=4) and end_date < today:
+    st.markdown("""
+    <style>
+    div.stButton > button:first-child {
+        background-color: #00FF00;
+        color: white;
+        }
+    </style>""", unsafe_allow_html=True)
     if st.button("Nhấn nút để bắt đầu tính toán"):
         st.success("Đang tiến hành giao dịch tự động và phân bổ danh mục đầu tư")
         
