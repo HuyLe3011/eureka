@@ -5,6 +5,7 @@ import os
 import random
 import numpy as np
 import tensorflow as tf
+import base64
 
 # Đặt seed cố định cho Python, NumPy, và TensorFlow
 seed_value = 30  # Bạn có thể thay đổi seed theo ý muốn
