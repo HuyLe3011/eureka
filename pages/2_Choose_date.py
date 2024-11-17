@@ -165,7 +165,7 @@ add_bg_from_local('background.png')
 st.logo("big_logo.png",icon_image="small_logo.png")
 
 st.header(":blue[CHỌN KHOẢNG THỜI GIAN NGHIÊN CỨU]")
-if st.button("Quay trở lại trang chủ",type='primary' ,use_container_width=True,icon="🏠"):
+if st.button("Quay trở lại trang chủ",use_container_width=True,icon="🏠"):
     st.switch_page("main_app.py")
 
 list=listing_companies()
