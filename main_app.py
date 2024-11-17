@@ -28,7 +28,7 @@ def add_bg_from_local(image_file):
 
 add_bg_from_local('background.png')
 
-st.logo("big_logo.png",icon_image="small_logo.png")
+st.logo("big_logo.png",size='large',icon_image="small_logo.png")
 st.image("banner.png")
 
 st.markdown('<h1 class="custom-title">APP PHÂN BỔ DANH MỤC ĐẦU TƯ DỰA TRÊN CHỈ BÁO KĨ THUẬT SMA</h1>', unsafe_allow_html=True)
