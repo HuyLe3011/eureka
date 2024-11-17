@@ -164,7 +164,7 @@ add_bg_from_local('background.png')
 
 st.logo("big_logo.png",icon_image="small_logo.png")
 
-st.header(":blue[Chọn khoảng thời gian nghiên cứu]")
+st.header(":blue[CHỌN KHOẢNG THỜI GIAN NGHIÊN CỨU]")
 
 list=listing_companies()
 list=list[(list['organTypeCode']=='DN')&(list['comGroupCode']=='HOSE')]
