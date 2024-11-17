@@ -182,7 +182,7 @@ def add_bg_from_local(image_file):
 
 add_bg_from_local('background.png')
 
-st.logo("big_logo.png",icon_image="small_logo.png")
+st.logo("big_logo.png",size='large',icon_image="small_logo.png")
 
 prices = st.file_uploader(":red[        ]", type="csv")
 
