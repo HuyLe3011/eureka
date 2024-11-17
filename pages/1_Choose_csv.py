@@ -393,19 +393,18 @@ if prices is not None:
 
         # Định nghĩa màu sắc cho các khối
         colors = [
-            '#D62728',  # Đỏ đậm (nóng nhất)
-            '#EF553B',  # Đỏ cam
-            '#FFA15A',  # Cam sáng
-            '#FECB52',  # Vàng
-            '#B6E880',  # Xanh lá cây nhạt
-            '#00CC96',  # Xanh lá cây
-            '#19D3F3',  # Xanh cyan
-            '#A1CAF1',  # Xanh nhạt
-            '#636EFA',  # Xanh dương nhạt
             '#AB63FA',  # Tím nhạt
-            '#FF97FF',  # Tím hồng
-            '#FF6692'   # Hồng (lạnh nhẹ hơn)
+            '#636EFA',  # Xanh dương nhạt
+            '#A1CAF1',  # Xanh nhạt
+            '#19D3F3',  # Xanh cyan
+            '#00CC96',  # Xanh lá cây
+            '#B6E880',  # Xanh lá cây nhạt
+            '#FECB52',  # Vàng
+            '#FFA15A',  # Cam sáng
+            '#EF553B',  # Đỏ cam
+            '#D62728'   # Đỏ đậm (nóng nhất)
         ]
+
 
         # Tạo biểu đồ treemap
         fig = px.treemap(
