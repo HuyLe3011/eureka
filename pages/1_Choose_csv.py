@@ -141,6 +141,34 @@ class MACrossStrategy(bt.Strategy):
 # Tải giá đóng cửa và thực hiện chiến thuật Trading SMA
 st.header(":blue[App phân bổ danh mục đầu tư theo chỉ báo kĩ thuật]")
 
+def add_bg_from_local(image_file):
+    with open(image_file, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
+    st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+        background-size: cover;
+        background-color: rgba(255, 255, 255, 0.7); /* Điều chỉnh độ mờ ở đây */
+        background-blend-mode: overlay;
+    }}
+    .custom-title {{
+        color: #F05454;
+    }}
+    .stMarkdown, .stText {{
+        color: #30475E !important;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
+
+add_bg_from_local('background.png')
+
+st.logo("big_logo.png",icon_image="small_logo.png")
+st.image("banner.png")
+
 prices = st.file_uploader(":red[Chọn file CSV để tải lên]", type="csv")
 if st.button("Quay trở lại trang chủ",type='primary',use_container_width=True,icon="🏠"):
     st.switch_page("main_app.py")
