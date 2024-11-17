@@ -393,18 +393,18 @@ if prices is not None:
 
         # Định nghĩa màu sắc cho các khối
         colors = [
-            '#636EFA',  # Màu xanh dương nhạt
-            '#EF553B',  # Màu đỏ cam
-            '#00CC96',  # Màu xanh lá cây
-            '#AB63FA',  # Màu tím nhạt
-            '#FFA15A',  # Màu cam sáng
-            '#19D3F3',  # Màu xanh cyan
-            '#FF6692',  # Màu hồng
-            '#B6E880',  # Màu xanh lá cây nhạt
-            '#FF97FF',  # Màu tím hồng
-            '#FECB52',  # Màu vàng
-            '#A1CAF1',  # Màu xanh nhạt
-            '#D62728'   # Màu đỏ đậm
+            '#D62728',  # Đỏ đậm (nóng nhất)
+            '#EF553B',  # Đỏ cam
+            '#FFA15A',  # Cam sáng
+            '#FECB52',  # Vàng
+            '#B6E880',  # Xanh lá cây nhạt
+            '#00CC96',  # Xanh lá cây
+            '#19D3F3',  # Xanh cyan
+            '#A1CAF1',  # Xanh nhạt
+            '#636EFA',  # Xanh dương nhạt
+            '#AB63FA',  # Tím nhạt
+            '#FF97FF',  # Tím hồng
+            '#FF6692'   # Hồng (lạnh nhẹ hơn)
         ]
 
         # Tạo biểu đồ treemap
