@@ -7,14 +7,6 @@ import numpy as np
 import tensorflow as tf
 import base64
 
-# Đặt seed cố định cho Python, NumPy, và TensorFlow
-seed_value = 20  # Bạn có thể thay đổi seed theo ý muốn
-
-os.environ['PYTHONHASHSEED'] = str(seed_value)
-random.seed(seed_value)
-np.random.seed(seed_value)
-tf.random.set_seed(seed_value)
-
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -62,6 +54,16 @@ custom_css = """
 
 # Áp dụng CSS tùy chỉnh
 st.markdown(custom_css, unsafe_allow_html=True)
+
+def is_allocation_imbalanced(weights, threshold=0.7):
+    return any(weight > threshold for weight in weights)
+
+def set_seed(seed_value):
+    os.environ['PYTHONHASHSEED'] = str(seed_value)
+    random.seed(seed_value)
+    np.random.seed(seed_value)
+    tf.random.set_seed(seed_value)
+
 
 class Basic_MACrossStrategy(bt.Strategy):
     params = dict(ma_short_period=20, ma_long_period=50)
@@ -274,9 +276,6 @@ if prices is not None:
         # Hiển thị biểu đồ trong Streamlit
         st.plotly_chart(fig)
 
-
-
-
         mcp=list_allo.Asset.to_list()
 
 
@@ -326,7 +325,8 @@ if prices is not None:
         # Chuyển kết quả quarterly_returns_MA thành DataFrame
         quarterly_returns_df = pd.DataFrame.from_dict(quarterly_returns_MA, orient='index').T
 
-
+        seed = 20
+        set_seed(seed)
         # Tạo tệp train 
         train_data = quarterly_returns_df
         # Reset index để đưa 'year' và 'quarter' về thành cột
@@ -386,7 +386,20 @@ if prices is not None:
 
 
         results_LSTM = pd.DataFrame({'Asset':mcp,"Weight":coeff_1})
-
+        if is_allocation_imbalanced(coeff_1):
+            while True:
+                seed += 1   # Thay đổi seed ngẫu nhiên
+                set_seed(seed)
+        
+        # Huấn luyện lại mô hình
+                model_LSTM = model.fit(X_train, y_train, epochs=100, shuffle=False, verbose=0)
+        
+        # Dự đoán lại trọng số
+                optimal_weights = model.predict(X_train)
+                coeff_1 = optimal_weights[0]
+        
+                if not is_allocation_imbalanced(coeff_1):
+                    break  # Thoát vòng lặp khi phân bổ hợp lý
 
         st.title('Biểu đồ phân bổ tài sản của danh mục đầu tư')
 
