@@ -57,7 +57,7 @@ custom_css = """
 # Áp dụng CSS tùy chỉnh
 st.markdown(custom_css, unsafe_allow_html=True)
 
-def is_allocation_imbalanced(weights, threshold=0.9):
+def is_allocation_imbalanced(weights, threshold=0.7):
     return any(weight > threshold for weight in weights)
 
 def set_seed(seed_value):
