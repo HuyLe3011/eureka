@@ -5,13 +5,6 @@ import numpy as np
 import tensorflow as tf
 import base64
 
-seed_value = 20  # Bạn có thể thay đổi seed theo ý muốn
-
-os.environ['PYTHONHASHSEED'] = str(seed_value)
-random.seed(seed_value)
-np.random.seed(seed_value)
-tf.random.set_seed(seed_value)
-
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -63,6 +56,16 @@ custom_css = """
 
 # Áp dụng CSS tùy chỉnh
 st.markdown(custom_css, unsafe_allow_html=True)
+
+def is_allocation_imbalanced(weights, threshold=0.9):
+    return any(weight > threshold for weight in weights)
+
+def set_seed(seed_value):
+    os.environ['PYTHONHASHSEED'] = str(seed_value)
+    random.seed(seed_value)
+    np.random.seed(seed_value)
+    tf.random.set_seed(seed_value)
+
 class Basic_MACrossStrategy(bt.Strategy):
     params = dict(ma_short_period=20, ma_long_period=50)
 
@@ -348,7 +351,8 @@ if start_date and end_date and start_date <= end_date and (end_date - start_date
 
         # Xóa cột 'year' và 'quarter' sau khi reset index
         train_data = train_data.drop(columns=['level_0','level_1'])
-
+        seed = 20
+        set_seed(seed)
         # Lớp CustomModel với hàm sharpe_loss
         class CustomModel:
             def __init__(self, data):
@@ -395,7 +399,20 @@ if start_date and end_date and start_date <= end_date and (end_date - start_date
 
         optimal_weights = model.predict(X_train)
         coeff_1 = optimal_weights[0]
-
+        if is_allocation_imbalanced(coeff_1):
+            while True:
+                seed += 1   # Thay đổi seed ngẫu nhiên
+                set_seed(seed)
+        
+        # Huấn luyện lại mô hình
+                model_LSTM = model.fit(X_train, y_train, epochs=100, shuffle=False, verbose=0)
+        
+        # Dự đoán lại trọng số
+                optimal_weights = model.predict(X_train)
+                coeff_1 = optimal_weights[0]
+        
+                if not is_allocation_imbalanced(coeff_1):
+                    break  # Thoát vòng lặp khi phân bổ hợp lý
 
         results_LSTM = pd.DataFrame({'Asset':mcp,"Weight":coeff_1})
 
