@@ -384,8 +384,6 @@ if prices is not None:
         optimal_weights = model.predict(X_train)
         coeff_1 = optimal_weights[0]
 
-
-        results_LSTM = pd.DataFrame({'Asset':mcp,"Weight":coeff_1})
         if is_allocation_imbalanced(coeff_1):
             while True:
                 seed += 1   # Thay đổi seed ngẫu nhiên
@@ -400,7 +398,9 @@ if prices is not None:
         
                 if not is_allocation_imbalanced(coeff_1):
                     break  # Thoát vòng lặp khi phân bổ hợp lý
+        results_LSTM = pd.DataFrame({'Asset':mcp,"Weight":coeff_1})
 
+        
         st.title('Biểu đồ phân bổ tài sản của danh mục đầu tư')
 
         square_plot_test = pd.DataFrame({
