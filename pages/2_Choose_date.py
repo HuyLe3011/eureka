@@ -465,7 +465,9 @@ if start_date and end_date and start_date <= end_date and (end_date - start_date
                 # Tùy chỉnh kích thước biểu đồ
         fig.update_layout(
             width=1000,  # Tăng chiều rộng
-            height=800,  # Tăng chiều cao
+            height=800,
+            plot_bgcolor='rgba(0,0,0,0)',  # Nền biểu đồ trong suốt
+            paper_bgcolor='rgba(0,0,0,0)'# Tăng chiều cao
         )
 
 
