@@ -450,7 +450,9 @@ if prices is not None:
                 # Tùy chỉnh kích thước biểu đồ
         fig.update_layout(
             width=1000,  # Tăng chiều rộng
-            height=800,  # Tăng chiều cao
+            height=800,
+            plot_bgcolor='rgba(0,0,0,0)',  # Nền biểu đồ trong suốt
+            paper_bgcolor='rgba(0,0,0,0)'# Tăng chiều cao
         )
         # Hiển thị biểu đồ trong Streamlit
         st.plotly_chart(fig)
