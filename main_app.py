@@ -1,7 +1,7 @@
 import streamlit as st
 import base64
 
-st.set_page_config(page_title="Ứng dụng LSTM cho danh mục đầu tư",page_icon="📊")
+st.set_page_config(page_title="Ứng dụng học sâu để xây dựng mô hình tối ưu hóa danh mục đầu tư trên thị trường chứng khoán Việt Nam",page_icon="📊")
 
 def add_bg_from_local(image_file):
     with open(image_file, "rb") as image_file:
