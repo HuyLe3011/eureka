@@ -31,7 +31,7 @@ add_bg_from_local('background.png')
 st.logo("big_logo.png",size='large',icon_image="small_logo.png")
 st.image("banner.png")
 
-st.markdown('<h1 class="custom-title">APP PHÂN BỔ DANH MỤC ĐẦU TƯ DỰA TRÊN CHỈ BÁO KĨ THUẬT SMA</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="custom-title">Ứng dụng học sâu để xây dựng mô hình tối ưu hóa danh mục đầu tư trên thị trường chứng khoán Việt Nam</h1>', unsafe_allow_html=True)
 st.markdown('<p style="color: #30475E;">Chọn phương thức nhập dữ liệu mà bạn muốn</p>', unsafe_allow_html=True)
 
 custom_css = """
