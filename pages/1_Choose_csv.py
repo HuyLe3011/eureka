@@ -30,7 +30,7 @@ import backtrader as bt
 import plotly.express as px
 import plotly.graph_objects as go
 
-st.set_page_config(page_title="Ứng dụng LSTM cho danh mục đầu tư",page_icon="📊")
+st.set_page_config(page_title="Applying deep learning to portfolio optimization in the Vietnamese stock market",page_icon="📊")
 custom_css = """
 <style>
     html, body, [class*="css"] {
@@ -142,7 +142,7 @@ class MACrossStrategy(bt.Strategy):
 
 
 # Tải giá đóng cửa và thực hiện chiến thuật Trading SMA
-st.header(":blue[CHỌN FILE .CSV ĐỂ TẢI LÊN]")
+st.header(":blue[SELECT A .CSV FILE TO UPLOAD]")
 st.markdown("""
     <style>
     div.stButton > button:first-child {
@@ -156,7 +156,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-if st.button("Quay trở lại trang chủ",type="primary",use_container_width=True,icon="🏠"):
+if st.button("Back to the menu",type="primary",use_container_width=True,icon="🏠"):
     st.switch_page("main_app.py")
     
 def add_bg_from_local(image_file):
@@ -194,11 +194,11 @@ if prices is not None:
     prices = pd.read_csv(prices,index_col=0)
 
     # Hiển thị dữ liệu trong Streamlit
-    st.write("Dữ liệu đã tải lên!")
+    st.write("The data have been uploaded")
     st.dataframe(prices,width=1000, height=200,column_order=('ticker','time','open','high','close','volume'),hide_index=True)
-    x=st.button("Ấn nút để bắt đầu tính toán")
+    x=st.button("Press the button to start")
     if x==True:
-        st.success("Đang thực hiện tính toán...")
+        st.success("Calculating")
 
         mcp=prices.ticker.unique()
         R_ma_check=[]
@@ -248,7 +248,7 @@ if prices is not None:
 
         list_allo=pd.DataFrame({'Asset':mcp})
 
-        st.title('50 cổ phiếu cho lợi nhuận cao nhất trên chiến thuật SMA theo file dữ liệu')
+        st.title('Top 50 highest-return stocks based on the SMA strategy from the data file')
         return_ma_check_sorted = return_ma_check.sort_values('Return', ascending=False)
 
         fig = go.Figure(data=[
@@ -257,8 +257,8 @@ if prices is not None:
         
         # Tùy chỉnh biểu đồ
         fig.update_layout(
-            xaxis_title='<b>Mã cổ phiếu</b>',  # In đậm tiêu đề trục x
-            yaxis_title='<b>Tỷ suất lợi nhuận (%)</b>',  # In đậm tiêu đề trục y
+            xaxis_title="<b>Stock's ticker</b>",  # In đậm tiêu đề trục x
+            yaxis_title='<b>Rate of return (%)</b>',  # In đậm tiêu đề trục y
             xaxis_tickangle=-45,
             height=800,  # Tăng chiều cao
             width=1200,  # Tăng chiều rộng
@@ -401,7 +401,7 @@ if prices is not None:
         results_LSTM = pd.DataFrame({'Asset':mcp,"Weight":coeff_1})
 
         
-        st.title('Biểu đồ phân bổ tài sản của danh mục đầu tư')
+        st.title('Asset allocation chart of the portfolio.')
 
         square_plot_test = pd.DataFrame({
             'Cổ phiếu': results_LSTM.sort_values('Weight', ascending=False).Asset,
