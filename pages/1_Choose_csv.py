@@ -272,7 +272,7 @@ if prices is not None:
             plot_bgcolor='rgba(0,0,0,0)',  # Nền biểu đồ trong suốt
             paper_bgcolor='rgba(0,0,0,0)'  # Nền toàn biểu đồ trong suốt
         )
-        
+        print(type(fig))
         # Hiển thị biểu đồ trong Streamlit
         st.plotly_chart(fig)
 
