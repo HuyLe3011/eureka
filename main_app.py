@@ -1,7 +1,7 @@
 import streamlit as st
 import base64
 
-st.set_page_config(page_title="Ứng dụng học sâu để xây dựng mô hình tối ưu hóa danh mục đầu tư trên thị trường chứng khoán Việt Nam",page_icon="📊")
+st.set_page_config(page_title="Applying deep learning to portfolio optimization in the Vietnamese stock market",page_icon="📊")
 
 def add_bg_from_local(image_file):
     with open(image_file, "rb") as image_file:
@@ -31,8 +31,8 @@ add_bg_from_local('background.png')
 st.logo("big_logo.png",size='large',icon_image="small_logo.png")
 st.image("banner.png")
 
-st.markdown('<h1 class="custom-title">Ứng dụng học sâu để xây dựng mô hình tối ưu hóa danh mục đầu tư trên thị trường chứng khoán Việt Nam</h1>', unsafe_allow_html=True)
-st.markdown('<p style="color: #30475E;">Chọn phương thức nhập dữ liệu mà bạn muốn</p>', unsafe_allow_html=True)
+st.markdown('<h1 class="custom-title">Applying deep learning to portfolio optimization in the Vietnamese stock market.".</h1>', unsafe_allow_html=True)
+st.markdown('<p style="color: #30475E;">Select the data input method you want.</p>', unsafe_allow_html=True)
 
 custom_css = """
 <style>
