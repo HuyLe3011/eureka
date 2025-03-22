@@ -59,7 +59,7 @@ custom_css = """
 # Áp dụng CSS tùy chỉnh
 st.markdown(custom_css, unsafe_allow_html=True)
 
-if st.button("Nhập file .csv", use_container_width=True,icon="📁"):
+if st.button("import .csv file", use_container_width=True,icon="📁"):
     st.switch_page("pages/1_Choose_csv.py")
-if st.button("Nhập khoảng thời gian thu thập dữ liệu (chỉ hỗ trợ HOSE)", use_container_width=True,icon="🗓️"):
+if st.button("Enter the data collection period (HOSE only supported)", use_container_width=True,icon="🗓️"):
     st.switch_page("pages/2_Choose_date.py")
