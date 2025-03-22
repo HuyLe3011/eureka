@@ -28,7 +28,7 @@ import plotly.graph_objects as go
 from datetime import date,datetime, timedelta
 import pytz
 
-st.set_page_config(page_title="Ứng dụng LSTM cho danh mục đầu tư",page_icon="📊")
+st.set_page_config(page_title="Applying deep learning to portfolio optimization in the Vietnamese stock market.",page_icon="📊")
 custom_css = """
 <style>
     html, body, [class*="css"] {
@@ -180,8 +180,8 @@ st.markdown("""
 
 st.logo("big_logo.png",size='large',icon_image="small_logo.png")
 
-st.header(":blue[CHỌN KHOẢNG THỜI GIAN NGHIÊN CỨU]")
-if st.button("Quay trở lại trang chủ",type="primary",use_container_width=True,icon="🏠"):
+st.header(":blue[SELECT THE RESEARCH PERIOD]")
+if st.button("Back to the menu",type="primary",use_container_width=True,icon="🏠"):
     st.switch_page("main_app.py")
 
 list=listing_companies()
@@ -192,10 +192,10 @@ col1, col2 = st.columns(2)
 
 # Hiển thị khoảng thời gian đã chọn
 with col1:
-    start_date = st.date_input(":red[Chọn ngày bắt đầu]", value=None)
+    start_date = st.date_input(":red[Choose start date]", value=None)
 
 with col2:  
-    end_date = st.date_input(":red[Chọn ngày kết thúc]", value=None)
+    end_date = st.date_input(":red[Choose end date]", value=None)
 
 # Ngày hôm nay
 today = datetime.today().date()
@@ -203,16 +203,16 @@ today = datetime.today().date()
 # Hiển thị khoảng thời gian đã chọn với các điều kiện bổ sung
 if start_date is not None and end_date is not None:
     if end_date > today:
-        st.error("Lỗi: Ngày kết thúc không được lớn hơn ngày hôm nay.")
+        st.error("Lỗi: The end date cannot be later than today.")
     elif start_date <= end_date and (end_date - start_date) > timedelta(weeks=4):
-        st.success(f"Bạn đã chọn khoảng thời gian từ {start_date} đến {end_date}")
+        st.success(f"you have chosen the period from {start_date} to {end_date}")
     else:
-        st.error("Lỗi: Ngày kết thúc phải sau ngày bắt đầu và khoảng thời gian phải đủ dài.")
+        st.error("Lỗi: The end date must be after the start date, and the period must be sufficiently long.")
 
 if start_date and end_date and start_date <= end_date and (end_date - start_date) > timedelta(weeks=4) and end_date < today:
 
-    if st.button("Nhấn nút để bắt đầu tính toán"):
-        st.success("Đang tiến hành giao dịch tự động và phân bổ danh mục đầu tư")
+    if st.button("Click the button to start"):
+        st.success("Automated trading and portfolio allocation in progress.")
         
         start_date_str = start_date.strftime('%Y-%m-%d')
 
@@ -266,7 +266,7 @@ if start_date and end_date and start_date <= end_date and (end_date - start_date
 
         list_allo=pd.DataFrame({'Asset':mcp})
 
-        st.title('50 cổ phiếu cho lợi nhuận cao nhất trên chiến thuật SMA trong giai đoạn từ '+start_date_str+' đến '+end_date_str)
+        st.title('Top 50 highest-return stocks based on the SMA strategy from '+start_date_str+' to '+end_date_str)
         return_ma_check_sorted = return_ma_check.sort_values('Return', ascending=False)
 
         # Tạo biểu đồ cột với Plotly
@@ -276,8 +276,8 @@ if start_date and end_date and start_date <= end_date and (end_date - start_date
         
         # Tùy chỉnh biểu đồ
         fig.update_layout(
-            xaxis_title='<b>Mã cổ phiếu</b>',  # In đậm tiêu đề trục x
-            yaxis_title='<b>Tỷ suất lợi nhuận (%)</b>',  # In đậm tiêu đề trục y
+            xaxis_title="<b>Stock's ticker</b>",  # In đậm tiêu đề trục x
+            yaxis_title='<b>Rate of return (%)</b>',  # In đậm tiêu đề trục y
             xaxis_tickangle=-45,
             height=800,  # Tăng chiều cao
             width=1200,  # Tăng chiều rộng
@@ -417,7 +417,7 @@ if start_date and end_date and start_date <= end_date and (end_date - start_date
         results_LSTM = pd.DataFrame({'Asset':mcp,"Weight":coeff_1})
 
 
-        st.title('Biểu đồ phân bổ tài sản của danh mục đầu tư')
+        st.title('Asset allocation chart of the portfolio')
 
         square_plot_test = pd.DataFrame({
             'Cổ phiếu': results_LSTM.sort_values('Weight', ascending=False).Asset,
@@ -475,5 +475,5 @@ if start_date and end_date and start_date <= end_date and (end_date - start_date
         # Hiển thị biểu đồ trong Streamlit
         st.plotly_chart(fig)
 else:
-    st.warning("Vui lòng chọn khoảng thời gian hợp lệ trước khi tính toán.")
+    st.warning("Please select a valid time period before proceeding with the calculation.")
 
