@@ -254,7 +254,7 @@ if prices is not None:
         fig = go.Figure(data=[
             go.Bar(x=return_ma_check_sorted['Ticker'], y=return_ma_check_sorted['Return'] * 100)
         ])
-        
+        print(type(fig))
         # Tùy chỉnh biểu đồ
         fig.update_layout(
             xaxis_title="<b>Stock's ticker</b>",  # In đậm tiêu đề trục x
