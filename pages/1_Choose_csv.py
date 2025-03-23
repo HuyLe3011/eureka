@@ -256,7 +256,7 @@ if prices is not None:
         ])
         # Tùy chỉnh biểu đồ
         fig.update_layout(
-            xaxis_title="<b>Stock's ticker</b>",  # In đậm tiêu đề trục x
+            xaxis_title='<b>Stock ticker</b>',  # In đậm tiêu đề trục x
             yaxis_title='<b>Rate of return (%)</b>',  # In đậm tiêu đề trục y
             xaxis_tickangle=-45,
             height=800,  # Tăng chiều cao
