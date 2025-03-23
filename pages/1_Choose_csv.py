@@ -272,7 +272,7 @@ if prices is not None:
             paper_bgcolor='rgba(0,0,0,0)'  # Nền toàn biểu đồ trong suốt
         )
         # Hiển thị biểu đồ trong Streamlit
-        st.plotly_chart(fig)
+        st.plotly_chart(fig,use_container_width=True)
 
         mcp=list_allo.Asset.to_list()
 
