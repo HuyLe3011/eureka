@@ -21,4 +21,4 @@ scikeras
 beautifulsoup4
 Pillow
 IPython
-plotly
+plotly==4.14.3 
