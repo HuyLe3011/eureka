@@ -205,7 +205,7 @@ if start_date is not None and end_date is not None:
     if end_date > today:
         st.error("Lỗi: The end date cannot be later than today.")
     elif start_date <= end_date and (end_date - start_date) > timedelta(weeks=4):
-        st.success(f"you have chosen the period from {start_date} to {end_date}")
+        st.success(f"You have chosen the period from {start_date} to {end_date}")
     else:
         st.error("Lỗi: The end date must be after the start date, and the period must be sufficiently long.")
 
