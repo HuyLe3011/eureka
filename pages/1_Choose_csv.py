@@ -254,7 +254,6 @@ if prices is not None:
         fig = go.Figure(data=[
             go.Bar(x=return_ma_check_sorted['Ticker'], y=return_ma_check_sorted['Return'] * 100)
         ])
-        st.write(type(fig))
         # Tùy chỉnh biểu đồ
         fig.update_layout(
             xaxis_title="<b>Stock's ticker</b>",  # In đậm tiêu đề trục x
@@ -263,7 +262,7 @@ if prices is not None:
             height=800,  # Tăng chiều cao
             width=1200,  # Tăng chiều rộng
             yaxis=dict(
-                tickformat="%.2f%%",  # Định dạng số liệu trên trục y
+                tickformat=".2f",  # Định dạng số liệu trên trục y
                 titlefont=dict(size=25, family='Arial', color='black')  # Font tiêu đề trục y
             ),
             xaxis=dict(
@@ -272,7 +271,6 @@ if prices is not None:
             plot_bgcolor='rgba(0,0,0,0)',  # Nền biểu đồ trong suốt
             paper_bgcolor='rgba(0,0,0,0)'  # Nền toàn biểu đồ trong suốt
         )
-        print(type(fig))
         # Hiển thị biểu đồ trong Streamlit
         st.plotly_chart(fig)
 
