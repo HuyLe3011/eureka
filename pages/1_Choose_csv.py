@@ -250,7 +250,6 @@ if prices is not None:
 
         st.title('Top 50 highest-return stocks based on the SMA strategy from the data file')
         return_ma_check_sorted = return_ma_check.sort_values('Return', ascending=False)
-        st.dataframe(return_ma_check_sorted)
         
         fig = go.Figure(data=[
             go.Bar(x=return_ma_check_sorted['Ticker'], y=return_ma_check_sorted['Return'] * 100)
